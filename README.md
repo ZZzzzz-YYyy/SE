@@ -29,52 +29,48 @@
 ---
 
 ## Part A: User Requirements
-
+ 
 ### 1. Textual Analysis
-
-The following textual analysis identifies the key actors and use cases extracted from the ShopEase requirements brief. Each candidate is supported by extracted text from the brief and a description that clarifies its role or function within the system.
-
+ 
 #### 1.1 Actors
-
+ 
 | Actor | Extracted Text | Description |
 |-------|---------------|-------------|
-| **Buyer** | *"...allow buyers to browse products, filter by categories, read reviews, make secure payments, and track orders in real time."* | End-users who register, search for products, make purchases, write reviews, and track deliveries through the mobile application. |
-| **Seller** | *"Sellers will have access to a dashboard to manage inventory, process orders, and communicate with customers."* | Independent business owners who register as sellers, manage product listings, fulfil orders, communicate with buyers, and access sales analytics. |
-| **Administrator** | *"The platform administrator, representing ShopEase, has the responsibility of overseeing the entire ecosystem."* | ShopEase operations staff responsible for approving sellers, resolving disputes, managing categories and promotions, and monitoring platform performance. |
-| **Payment Gateway** | *"The application should... make secure payments..."* (implied external system) | An external payment processing system that verifies and processes buyer transactions securely. The Payment Gateway is outside the system boundary. |
-
-> **Rationale:** We identified four actors because the brief clearly describes three distinct human roles (Buyer, Seller, Administrator) with different permissions and goals. The Payment Gateway is modelled as an external system actor because payment processing is handled outside ShopEase.
-
----
-
+| **Buyer** | *"...allow buyers to browse products, filter by categories, read reviews, make secure payments, and track orders in real time."* | End-users who search for products, make purchases, write reviews, and track deliveries. |
+| **Seller** | *"Sellers will have access to a dashboard to manage inventory, process orders, and communicate with customers."* | Independent business owners who manage product listings, fulfil orders, and access sales analytics. |
+| **Administrator** | *"The platform administrator, representing ShopEase, has the responsibility of overseeing the entire ecosystem."* | ShopEase staff responsible for approving sellers, resolving disputes, managing categories/promotions, and monitoring performance. |
+ 
+**Rationale:** Three distinct human roles with different permissions and goals. Payment processing is handled internally through the Make Payment use case, integrating with a third-party provider behind the scenes.
+ 
 #### 1.2 Use Cases
-
+ 
 | Use Case | Extracted Text | Description |
 |----------|---------------|-------------|
-| **Log In** | *"They need to be able to register and log in securely..."* / *"They need to register as sellers and maintain their profile information."* | All users authenticate via secure login to access role-specific features. This also covers account registration for new Buyers and Sellers. |
-| **Browse Products** | *"The app will allow buyers to browse products, filter by categories..."* | Buyers explore the product catalogue by scrolling through listings, viewing categories, and discovering promoted or recommended items. |
-| **Search Products** | *"...search for products using various filters such as category, price range, and customer ratings..."* | Buyers refine product discovery using search keywords and filters. This optionally extends Browse Products when the buyer wants more specific results. |
-| **Manage Cart** | *"...they should be able to add them to a shopping cart..."* | Buyers add, update quantities, or remove items from their shopping cart before proceeding to checkout. |
-| **Checkout Order** | *"...proceed through a secure checkout process."* | The process where a Buyer confirms their cart, enters shipping details, and completes a purchase. This always includes the Make Payment and Log In use cases. |
-| **Make Payment** | *"...make secure payments..."* | A Buyer submits payment details which are processed through the external Payment Gateway. This is included as a mandatory step within Checkout Order. |
-| **Track Order** | *"...buyers will want to track their orders in real time..."* / *"...view their order history."* | Buyers view the live status of current orders and access a record of all past orders, including details, dates, and statuses. |
-| **Write Review** | *"...view detailed product information including images and reviews."* (implies review creation) | Buyers leave ratings and written reviews for products they have purchased. This optionally extends Track Order when viewing completed past orders. |
-| **Send Message** | *"...communicate directly with buyers through an in-app messaging system."* | Both Buyers and Sellers use an in-app messaging feature to communicate about orders, product enquiries, or issues. |
-| **Manage Product Listings** | *"The system should allow them to easily add new products, update existing listings, and remove items..."* / *"Sellers must also be able to view and manage incoming orders, update order statuses..."* / *"...access to sales reports and analytics..."* | Sellers manage their entire store: add/edit/remove products, process and fulfil incoming orders, and access sales analytics and revenue reports. |
-| **Approve Seller** | *"The administrator needs tools to approve new seller registrations, ensuring that only legitimate businesses join the platform."* | The Administrator reviews and approves or rejects new seller registration applications based on verification criteria. |
-| **Manage Platform** | *"They must monitor platform activity to identify and resolve disputes..."* / *"...manage product categories, create promotional campaigns, and configure platform settings."* / *"...access to comprehensive reports on platform performance..."* | The Administrator oversees the entire platform: resolves disputes, manages categories, creates promotions, configures settings, and views performance reports. |
-
-> **Rationale:** We consolidated the original use cases into 12 high-level use cases to maintain clarity and simplicity in the use case diagram, as recommended in the UML guidelines. Register Account is merged into Log In (same entry point), View Order History is merged into Track Order (both involve viewing order status), Process Orders and View Sales Analytics are merged into Manage Product Listings (all seller management tasks), and all admin operations are unified into Manage Platform (to avoid overloading the diagram).
-
+| **Log In** | *"They need to be able to register and log in securely..."* | Secure authentication for all users. Also covers account registration. |
+| **Browse Products** | *"The app will allow buyers to browse products, filter by categories..."* | Buyers explore the catalogue through listings, categories, and recommendations. |
+| **Search Products** | *"...search for products using various filters such as category, price range, and customer ratings..."* | Optional refinement of browsing via search keywords and filters. Extends Browse Products. |
+| **Manage Cart** | *"...they should be able to add them to a shopping cart..."* | Buyers add, update, or remove items before checkout. |
+| **Checkout Order** | *"...proceed through a secure checkout process."* | Buyer confirms cart, enters shipping details, completes purchase. Includes Make Payment and Log In. |
+| **Make Payment** | *"...make secure payments..."* | Payment processed through external gateway. Mandatory step within Checkout Order. |
+| **Track Order** | *"...track their orders in real time..."* / *"...view their order history."* | Live order status and past order records. |
+| **Write Review** | *"...view detailed product information including images and reviews."* | Ratings and reviews for purchased products. Optionally extends Track Order. |
+| **Send Message** | *"...communicate directly with buyers through an in-app messaging system."* | In-app messaging between Buyers and Sellers. |
+| **Manage Product Listings** | *"...easily add new products, update existing listings, and remove items..."* / *"...view and manage incoming orders..."* / *"...sales reports and analytics..."* | Sellers manage products, process orders, and view analytics. |
+| **Approve Seller** | *"The administrator needs tools to approve new seller registrations..."* | Administrator reviews and approves/rejects seller applications. |
+| **Manage Platform** | *"...monitor platform activity..."* / *"...manage product categories, create promotional campaigns, and configure platform settings."* | Administrator oversees disputes, categories, promotions, settings, and reports. |
+ 
+**Rationale:** Consolidated into 12 high-level use cases for clarity. Register Account merged into Log In; View Order History into Track Order; Process Orders and View Sales Analytics into Manage Product Listings; all admin operations into Manage Platform.
+ 
 ---
-
+ 
 ### 2. Use Case Diagram
+ 
+Three actors (Buyer, Seller, Administrator) interact with 12 use cases within the system boundary.
+ 
 
-The use case diagram below represents the functional requirements of the ShopEase mobile application. It identifies four actors (Buyer, Seller, Administrator, and Payment Gateway) and their interactions with 12 core use cases.
-
-
+ 
 ![Use Case Diagram](images/use_case_diagram.png)
-
+ 
 ---
 
 ### 3. Personas
