@@ -151,7 +151,7 @@ The low-fidelity prototype below illustrates the **Buyer shopping flow**, coveri
  
 ### Notes
 1. **Integration between diagrams:** The same actors (Buyer, Seller, Administrator) appear consistently across the textual analysis, use case diagram, personas, activity diagram, and prototype. For example, the "Checkout Order" use case appears in the textual analysis, is shown in the use case diagram with its <<include>> relationship to Make Payment, is modelled step-by-step in the activity diagram, and is visually represented in prototype screens 3–5.
-2. **Scope of external systems:** The Payment Gateway is the only external system identified. Future iterations may include external notification services (push notifications, SMS) and shipping/logistics APIs.
+2. **Scope of third-party integrations:** Payment processing relies on a third-party gateway integrated within the Make Payment use case. Future iterations may include external notification services (push notifications, SMS) and shipping/logistics APIs.
 3. **Persona diversity:** The three personas represent different geographies, age groups, tech proficiencies, and user goals to ensure the design caters to a diverse user base.
  
 ### Queries for the Client (Mei Lin)
