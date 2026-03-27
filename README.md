@@ -6,16 +6,25 @@
 
 ## Table of Contents
 
-- [Part A: User Requirements](#part-a-user-requirements)
-  - [1. Textual Analysis](#1-textual-analysis)
-    - [1.1 Actors](#11-actors)
-    - [1.2 Use Cases](#12-use-cases)
-  - [2. Use Case Diagram](#2-use-case-diagram)
-  - [3. Personas](#3-personas)
-- [Part B: System Requirements (Specifications)](#part-b-system-requirements-specifications)
-  - [4. Activity Diagram](#4-activity-diagram)
-  - [5. Low-Fidelity Prototype](#5-low-fidelity-prototype)
-- [Quick Reference: Summary of Notes, Queries & Assumptions](#quick-reference-summary-of-notes-queries--assumptions)
+- [COMP1035 Software Engineering — Coursework 1](#comp1035-software-engineering--coursework-1)
+  - [ShopEase E-Commerce Mobile Application: Requirements \& Specifications Report](#shopease-e-commerce-mobile-application-requirements--specifications-report)
+  - [Table of Contents](#table-of-contents)
+  - [Part A: User Requirements](#part-a-user-requirements)
+    - [1. Textual Analysis](#1-textual-analysis)
+      - [1.1 Actors](#11-actors)
+      - [1.2 Use Cases](#12-use-cases)
+    - [2. Use Case Diagram](#2-use-case-diagram)
+    - [3. Personas](#3-personas)
+      - [Persona 1: Chloe Davis — Buyer](#persona-1-chloe-davis--buyer)
+      - [Persona 2: Jonathan Patterson — Seller](#persona-2-jonathan-patterson--seller)
+      - [Persona 3: Mei Lin — Administrator](#persona-3-mei-lin--administrator)
+  - [Part B: System Requirements (Specifications)](#part-b-system-requirements-specifications)
+    - [4. Activity Diagram](#4-activity-diagram)
+    - [5. Low-Fidelity Prototype](#5-low-fidelity-prototype)
+  - [Notes, Queries \& Assumptions](#notes-queries--assumptions)
+    - [Notes](#notes)
+    - [Queries for the Client (Mei Lin)](#queries-for-the-client-mei-lin)
+    - [Assumptions](#assumptions)
 
 ---
 
@@ -34,7 +43,7 @@ The following textual analysis identifies the key actors and use cases extracted
 | **Administrator** | *"The platform administrator, representing ShopEase, has the responsibility of overseeing the entire ecosystem."* | ShopEase operations staff responsible for approving sellers, resolving disputes, managing categories and promotions, and monitoring platform performance. |
 | **Payment Gateway** | *"The application should... make secure payments..."* (implied external system) | An external payment processing system that verifies and processes buyer transactions securely. The Payment Gateway is outside the system boundary. |
 
-> **Rationale:** We identified four actors because the brief clearly describes three distinct human roles (Buyer, Seller, Administrator) with different permissions and goals. The Payment Gateway is modelled as an external system actor because payment processing is handled outside ShopEase, similar to how the HPMS example treats its external payment system.
+> **Rationale:** We identified four actors because the brief clearly describes three distinct human roles (Buyer, Seller, Administrator) with different permissions and goals. The Payment Gateway is modelled as an external system actor because payment processing is handled outside ShopEase.
 
 ---
 
