@@ -107,20 +107,8 @@ The following three personas represent the primary user types of the ShopEase ap
 
 ### 4. Activity Diagram
 
-The activity diagram below models the **"Checkout Order"** use case, which was selected because it is one of the most critical and complex workflows in the ShopEase application. This use case involves all three swimlane participants (Buyer, ShopEase System, and Payment Gateway), includes decision points, parallel activities, and integrates with the Make Payment use case via the <<include>> relationship identified in the use case diagram.
+The entire Activity Diagram expands the Buyer → Checkout Order association from the Use Case Diagram into a detailed step-by-step workflow, with the <<include>> Make Payment use case integrated as the payment verification flow handled by the Payment Gateway swimlane.
 
-**Rationale for choosing Checkout Order:**
-- It is central to ShopEase's core business function (completing purchases).
-- It involves multiple actors across the system boundary (Buyer, System, and the external Payment Gateway).
-- It demonstrates decision logic (item availability, payment approval/failure).
-- It includes parallel processing (generating the order and sending confirmation simultaneously).
-- It connects clearly to the use case diagram (Checkout Order <<include>> Make Payment).
-
-**Key elements of the activity diagram:**
-- **Swimlanes** separate responsibilities: the Buyer provides input and decisions, the ShopEase System handles validation and processing, and the Payment Gateway verifies payment.
-- **Decision nodes** handle two conditional branches: whether cart items are available, and whether payment is approved.
-- **Fork and join bars** model parallel activities after payment confirmation — the system simultaneously generates the order record and sends a confirmation notification to the buyer.
-- **Initial and final nodes** clearly mark the start and end of the process.
 
 ![Activity Diagram: Checkout Order](images/activity_diagram.png)
 
